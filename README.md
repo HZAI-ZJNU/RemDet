@@ -42,8 +42,6 @@ We will release of pretrained model weights.
 |  RemDet-M   | 49.8 |      66.9       |      54.0       |      32.8      |      54.7      |      65.0      | [log](resources/mscoco/remdet_m_coco.log) |
 
 
-------
-
 
 ------
 # Object Detection
