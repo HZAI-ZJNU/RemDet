@@ -75,7 +75,7 @@ Download and extract [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset
 
 ```
 
-## train
+## Train
 Train with 8 GPUs:
 
 ```bash tools/dist_train.sh config_remdet/remdet/remdet_x-300e_coco.py 8 --amp --work-dir work_dir/remdet_x```
