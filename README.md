@@ -2,28 +2,37 @@
 
 Official PyTorch implementation of "RemDet: Rethinking Efficient Model Design for UAV Object Detection" [AAAI 2025]
 
---------
-# Introduction
+<details>
+  <summary>
+  <font size="+1">Abstract</font>
+  </summary>
+Object detection in Unmanned Aerial Vehicle (UAV) images has emerged as a focal area of research, which presents two significant challenges: i) objects are typically small and dense within vast images; ii) computational resource constraints render most models unsuitable for real-time deployment. Current real-time object detectors are not optimized for UAV images, and complex methods designed for small object detection often lack real-time capabilities. To address these challenges, we propose a novel detector, RemDet (Reparameter efficient multiplication Detector). Our contributions are as follows: 1) Rethinking the challenges of existing detectors for small and dense UAV images, and proposing information loss as a design guideline for efficient models. 2) We introduce the ChannelC2f module to enhance small object detection performance, demonstrating that high-dimensional representations can effectively mitigate information loss. 3) We design the GatedFFN module to provide not only strong performance but also low latency, effectively addressing the challenges of real-time detection. Our research reveals that GatedFFN, through the use of multiplication, is more cost-effective than feed-forward networks for high-dimensional representation. 4) We propose the CED module, which combines the advantages of ViT and CNN downsampling to effectively reduce information loss. It specifically enhances context information for small and dense objects. Extensive experiments on large UAV datasets, Visdrone and UAVDT, validate the real-time efficiency and superior performance of our methods. On the challenging UAV dataset VisDrone, our methods not only provided state-of-the-art results, improving detection by more than 3.4, but also achieve 110 FPS on a single 4090.
+</details>
+
+## Introduction
 In this paper, we propose a simple yet efficient model.
 
 The overview of the proposed RemDet.
 <div align="center">
-  <img src="resources/Architecture_RemDet.jpg" width="800px"/>
+  <img src="resources/Figure1.png" width=80%/>
 </div>
 
-The detailed design is shown below
+Comparison of the core innovations of the proposed RemDet:
+
 
 <div align="center">
-  <img src="resources/overall_design.jpg" width="800px"/>
+
+  <img src="resources/Figure2.png" width=80%/>
+
 </div>
 
------
-# Coming Soon
+
+## Coming Soon
 
 We will release of pretrained model weights.
 
-------
-# Main results
+
+## Main results
 
 ## Object Detection Performance for [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset):
 |     Model      |  AP  | AP<sub>50</sub> | AP<sub>75</sub> | AP<sub>S</sub> | AP<sub>M</sub> | AP<sub>L</sub> | #Params | FLOPs |                         Log                         |
@@ -44,8 +53,8 @@ We will release of pretrained model weights.
 
 
 ------
-# Object Detection
-## Environments
+## Object Detection
+### Environments
 ```shell
 conda create -n remdet -y python=3.11
 pip3 install -y pytorch==2.2.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121  # cu121
@@ -57,7 +66,7 @@ mim install mmcv==2.2.0 &&
 pip install -v -e .
 ```
   
-## Prepare VisDrone2019 Dataset
+### Prepare VisDrone2019 Dataset
 Download and extract [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset) dataset in the following directory structure:
 
 ```
@@ -78,10 +87,12 @@ Download and extract [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset
 ## Train
 Train with 8 GPUs:
 
-```bash tools/dist_train.sh config_remdet/remdet/remdet_x-300e_coco.py 8 --amp --work-dir work_dir/remdet_x```
+```
+bash tools/dist_train.sh config_remdet/remdet/remdet_x-300e_coco.py 8 --amp --work-dir work_dir/remdet_x
+```
 
 
-# Acknowledgements
+## Acknowledgements
 We thank but not limited to following repositories for providing assistance for our research:
 
 [//]: # (- [TIMM]&#40;https://github.com/rwightman/pytorch-image-models&#41;)
