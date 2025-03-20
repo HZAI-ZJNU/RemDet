@@ -84,6 +84,8 @@ Download and extract [VisDrone2019](https://github.com/VisDrone/VisDrone-Dataset
 
 ```
 
+Download UAVDT from [[Baidu Drive](https://pan.baidu.com/s/1ll3NQN5Np2GCOKzaLNR4Rg?pwd=iy7c)][[Google Drive](https://drive.google.com/file/d/1QoEB3JaSozu56xsbuNpGBX61_Nkhg7X5/view?usp=sharing)].
+
 ## Train
 Train with 8 GPUs:
 
